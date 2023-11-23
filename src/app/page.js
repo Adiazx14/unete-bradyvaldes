@@ -62,7 +62,10 @@ function LandingPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    window.open(
+      `https://api.whatsapp.com/send?phone=17868657264&text=Hola, mi nombre es ${formData.name}, mi correo es ${formData.email} y vivo en ${formData.country}. Me puede brindar más información sobre el producto y el negocio?`,
+      "_blank"
+    );
     // Form submission logic here
   };
 
@@ -119,7 +122,12 @@ function LandingPage() {
             TE GUSTA AYUDAR A PERSONAS??? Mejorando tu Salud Fisica y
             Financiera...
           </Typography>
-          <Typography color="textPrimary" variant="h3" gutterBottom>
+          <Typography
+            fontWeight="bold"
+            color="textPrimary"
+            variant="h4"
+            gutterBottom
+          >
             Da click en el video y Descúbrelo aquí
           </Typography>
           <SouthOutlined sx={{ fontSize: 80, mb: 2 }} color="primary" />
@@ -162,6 +170,7 @@ function LandingPage() {
           />
           <TextField
             color="primary"
+            required
             fullWidth
             label="País"
             name="country"
@@ -170,19 +179,7 @@ function LandingPage() {
             margin="normal"
             variant="filled"
           />
-          <TextField
-            color="primary"
-            required
-            type="tel"
-            fullWidth
-            label="Whatsapp"
-            name="whatsapp"
-            value={formData.whatsapp}
-            onChange={handleChange}
-            margin="normal"
-            variant="filled"
-          />
-          <FormControlLabel
+          {/*           <FormControlLabel
             sx={{ alignItems: "center", display: "flex", color: "textPrimary" }}
             control={
               <Checkbox
@@ -192,7 +189,7 @@ function LandingPage() {
               />
             }
             label="I agree to terms & conditions provided by the company. By providing my phone number, I agree to receive text messages from the business."
-          />
+          /> */}
           <Button
             color="primary"
             type="submit"
@@ -204,9 +201,6 @@ function LandingPage() {
           <Typography variant="h5" color="textSecondary">
             NOTA: Unirte a un equipo facilita llegar a tus metas
           </Typography>
-          <a href="https://api.whatsapp.com/send?phone=17868657264&text=Hi">
-            Send Message
-          </a>
         </Box>
 
         <Box sx={{ my: 4 }}>
