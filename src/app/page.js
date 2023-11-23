@@ -200,7 +200,7 @@ function LandingPage() {
             color="primary"
             type="submit"
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 3, mb: 2, fontSize: "1em" }}
           >
             Enviar Registro
           </Button>
@@ -246,7 +246,7 @@ function LandingPage() {
             Conoce más sobre nuestros productos, como funcionan, más testimonios
             y su tecnología
           </Typography>
-          <Button sx={{ my: 4 }} variant="contained">
+          <Button sx={{ my: 4, fontSize: "1em" }} variant="contained">
             Descubre más sobre los productos
           </Button>
           <Testimonios />
