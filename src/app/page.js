@@ -17,6 +17,7 @@ import {
   ListItemText,
   ThemeProvider,
   createTheme,
+  Grid,
 } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import {
@@ -24,8 +25,10 @@ import {
   CheckCircleOutline,
   SouthOutlined,
 } from "@mui/icons-material";
+import Testimonios from "./components/Testimonios";
 import Image from "next/image";
-import arrow from "./media/arrow.svg";
+import LinkDropdown from "./components/LinkDropdown";
+import HideOnScroll from "./components/HideOnScroll";
 
 const InformationSection = ({ items }) => (
   <List>
@@ -72,7 +75,7 @@ function LandingPage() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#FF99CC", // A modern purple, often associated with creativity and imagination
+        main: "#F2CC8F", // A modern purple, often associated with creativity and imagination
       },
       secondary: {
         main: "#9966cc", // A teal that provides a vibrant contrast to the purple
@@ -94,7 +97,7 @@ function LandingPage() {
         paper: "#1E1E1E", // A slightly lighter grey for elements like cards and sheets
       },
       text: {
-        primary: "#fff", // Pure white for the main text, offering a strong contrast
+        primary: "#C5C6C7", // Pure white for the main text, offering a strong contrast
         secondary: "rgba(255, 255, 255, 0.7)", // A slightly dimmed white for less important text
       },
     },
@@ -103,19 +106,22 @@ function LandingPage() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/*       <AppBar className="navbar" color="secondary" position="static">
-
-      </AppBar> */}
-      <Toolbar sx={{ display: "flex", justifyContent: "end" }}>
-        <Button>INICIO</Button>
-        <Button>NEGOCIO</Button>
-        <Button>PRODUCTOS</Button>
-        <Button>CONTACTAME</Button>
-      </Toolbar>
+      <HideOnScroll threshold={0}>
+        <AppBar className="navbar" color="background" position="sticky">
+          <Toolbar
+            sx={{
+              display: "flex",
+              justifyContent: "end",
+            }}
+          >
+            <LinkDropdown />
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
 
       <Container
         maxWidth="md"
-        sx={{ my: 2, textAlign: "center", color: "textPrimary" }}
+        sx={{ my: 2, textAlign: "center", color: "textPrimary", px: 5 }}
       >
         <Box sx={{ my: 0 }}>
           <Typography color="textPrimary" variant="h4" gutterBottom>
@@ -226,39 +232,73 @@ function LandingPage() {
             ]}
           />
         </Box>
-        {/* Links to External Content */}
+
         <Box sx={{ my: 4 }}>
-          <Typography variant="h5" gutterBottom>
-            Links Externos
-          </Typography>
-          <Link
-            href="https://unetealequipo.com/inicio"
-            target="_blank"
-            rel="noopener"
+          <Typography
+            color="textPrimary"
+            variant="h4"
+            fontWeight="bold"
+            gutterBottom
           >
-            unetealequipo.com/inicio
-          </Link>
-        </Box>
-
-        {/* Testimonials and Business Details */}
-        <Box sx={{ my: 4 }}>
-          <Typography variant="h5" gutterBottom>
-            Testimonios y Oportunidades de Negocio
+            TESTIMONIOS DE PRODUCTO
           </Typography>
-          {/* Here you would map over your testimonials data to render this section */}
-          <Typography variant="body1">
-            &quot;Este es un testimonio sobre la experiencia en el
-            negocio...&quot; - Nombre del Afiliado
+          <Typography variant="h5" color="textSecondary">
+            Conoce más sobre nuestros productos, como funcionan, más testimonios
+            y su tecnología
           </Typography>
-          {/* ... */}
-        </Box>
-
-        {/* Call to Action */}
-        <Box sx={{ my: 4, textAlign: "center" }}>
-          <Button variant="contained" color="primary" size="large">
-            Enviar Registro
+          <Button sx={{ my: 4 }} variant="contained">
+            Descubre más sobre los productos
           </Button>
+          <Testimonios />
         </Box>
+        <Box sx={{ my: 2 }}>
+          <Typography
+            color="textPrimary"
+            variant="h4"
+            fontWeight="bold"
+            gutterBottom
+          >
+            TESTIMONIOS DE NEGOCIO
+          </Typography>
+          <Typography variant="h5" color="textSecondary">
+            Mira los detalles de la oportunidad de distribución y negocio para
+            USA y Mexico
+          </Typography>
+          <Button sx={{ my: 4 }} variant="contained">
+            Descubre más sobre el negocio
+          </Button>
+          <Grid
+            container
+            spacing={5}
+            sx={{ display: "flex", justifyContent: "space-around" }}
+          >
+            <Grid item xs={12} md={4}>
+              <Image
+                src="/busi1.webp"
+                alt="Picture of the author"
+                width={260}
+                height={260}
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Image
+                src="/busi2.webp"
+                alt="Picture of the author"
+                width={260}
+                height={260}
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Image
+                src="/busi3.webp"
+                alt="Picture of the author"
+                width={260}
+                height={260}
+              />
+            </Grid>
+          </Grid>
+        </Box>
+
         {/* The rest of your page content goes here */}
       </Container>
     </ThemeProvider>

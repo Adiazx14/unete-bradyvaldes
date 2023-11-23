@@ -5,5 +5,11 @@
 }
 
 body {
-  background-color: #9966cc;
+  background-color: #1a1a1d;
+}
+
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 14px;
+  }
 }
