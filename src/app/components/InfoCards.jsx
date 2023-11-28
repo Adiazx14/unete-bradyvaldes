@@ -104,7 +104,7 @@ const InfoCards = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                More Information
+                Más información
               </Button>
             </CardActions>
           </Card>
