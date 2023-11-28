@@ -1,17 +1,6 @@
 import { Grid } from "@mui/material";
 
-const videos = [
-  "first",
-  "second",
-  "third",
-  "fourth",
-  "fifth",
-  "sixth",
-  "seventh",
-  "eighth",
-];
-
-const Testimonios = () => {
+const Testimonios = ({ videos }) => {
   return (
     <Grid mt={2} columnSpacing={5} rowSpacing={4} container>
       {videos.map((video, index) => (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button, Link, Menu, MenuItem } from "@mui/material";
+import { Button, Menu, MenuItem } from "@mui/material";
 import { MenuBook, MenuOpen } from "@mui/icons-material";
+import Link from "next/link";
 
 function LinkDropdown() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -17,21 +18,27 @@ function LinkDropdown() {
   // List of external links
   const externalLinks = [
     {
+      title: "Inicio",
+      url: "/",
+    },
+
+    {
+      title: "Información sobre el negocio",
+      url: "/negocio",
+    },
+    {
       title: "Información sobre los productos",
-      url: "https://unetealequipo.com/productos",
+      url: "/producto",
     },
     {
       title: "Tienda",
-      url: "https://shop.vitalhealthglobal.com/Healherventures",
+      url: "https://shop.vitalhealthglobal.com/Bradyvaldes",
     },
     {
       title: "Membresía",
-      url: "https://join.vitalhealthglobal.com/enrollment/display?time=1700756386428&tipoEnvio=null&KEY_SALE_PAYPAY=&_ID_PAIS_REP=4&_PROSPECT_REGISTRATION_PROCESS=false&_ID_DISTRIBUIDOR_REP=0&_SPONSOR_WISENET_ID=Healherventures&rep=false&time=1700756386428#noback",
+      url: "https://join.vitalhealthglobal.com/Bradyvaldes",
     },
-    {
-      title: "Información sobre el negocio",
-      url: "https://unetealequipo.com/negocio",
-    },
+
     // Add more links as needed
   ];
 
@@ -44,7 +51,7 @@ function LinkDropdown() {
         endIcon={<MenuOpen />}
         sx={{ fontSize: "1em" }}
       >
-        Enlaces externos
+        Enlaces
       </Button>
       <Menu
         id="external-links-menu"
@@ -55,9 +62,7 @@ function LinkDropdown() {
       >
         {externalLinks.map((link, index) => (
           <MenuItem sx={{ width: "100%" }} key={index} onClick={handleClose}>
-            <Link target="_blank" rel="noopener" href={link.url}>
-              {link.title}
-            </Link>
+            <Link href={link.url}>{link.title}</Link>
           </MenuItem>
         ))}
       </Menu>
